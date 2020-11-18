@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var locationObject: CoreLocationObject
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Button("Request location") {
+                self.locationObject.authorize()
+            }
+            Text("\(locationObject.authorizationStatus.description)")
+               
+            self.locationObject.location.map {
+                Text($0.description)
+            }
+        }
     }
 }
 

@@ -12,6 +12,7 @@ struct ToySwiftUILocationApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(CoreLocationObject())
         }
     }
 }
